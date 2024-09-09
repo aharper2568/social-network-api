@@ -40,14 +40,14 @@ const thoughtData = [
 
 db.once('open', async () => {
   try {
-    await User.deleteMany({});
+    await User.deleteMany({}); // delete already existing data
     await Thought.deleteMany({});
 
     const createdThoughts = await Thought.insertMany(thoughtData);
 
     const updatedUserData = userData.map((user) => {
       const userThoughts = createdThoughts
-        .filter((thought) => thought.username === user.username)
+        .filter((thought) => thought.username === user.username) // filter through thoughts based on username, append corresponding thought ID to usernames
         .map((thought) => thought._id);
       user.thoughts = userThoughts;
       return user;
