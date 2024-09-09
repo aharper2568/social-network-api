@@ -3,9 +3,9 @@ const { Schema, model, Types } = require('mongoose');
 
 const formatDate = (timestamp) => {
   const date = new Date(timestamp);
-  return date.toLocaleString(); 
+  return date.toLocaleString();  // timestamp helper
 };
-
+// nested reaction schema
 const reactionSchema = new Schema(
   {
     reactionId: {
@@ -62,11 +62,11 @@ const thoughtSchema = new Schema(
     id: false,
   }
 );
-
+// get reaction count 
 thoughtSchema.virtual('reactionCount').get(function () {
   return this.reactions.length;
 });
-
+// init
 const Thought = model('Thought', thoughtSchema);
 
 module.exports = Thought;
