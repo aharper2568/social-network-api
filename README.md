@@ -17,3 +17,5 @@ To test the API, follow these instructions:
 
 ## Author
 Developed in VSCode by **Anthony Harper**
+
+Credit to [regexr.com](https://regexr.com/3e48o) for regex matching an Email
